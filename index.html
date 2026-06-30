@@ -1,238 +1,277 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Impacto de la Lista de Morosos Hacienda</title>
- <style>
- :root {
- --primary: #1e293b;
- --accent: #dc2626;
- --accent-green: #16a34a;
- --bg: #f8fafc;
- --card-bg: #ffffff;
- --text: #0f172a;
- --text-light: #64748b;
- }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impacto de la Lista de Morosos Hacienda</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #dc2626;
+            --accent-green: #16a34a;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-light: #64748b;
+        }
 
- * {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
- font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
- }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
- body {
- background-color: var(--bg);
- color: var(--text);
- line-height: 1.6;
- }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
- .container {
- max-width: 1100px;
- margin: 0 auto;
- padding: 3rem 1rem;
- }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
 
- /* Hero Section */
- header {
- text-align: center;
- margin-bottom: 3.5rem;
- border-bottom: 1px solid #e2e8f0;
- padding-bottom: 2.5rem;
- }
+        /* Hero Section */
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 2.5rem;
+        }
 
- .badge {
- background-color: var(--primary);
- color: white;
- padding: 0.25rem 0.75rem;
- border-radius: 50px;
- font-size: 0.85rem;
- font-weight: bold;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- }
+        .badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
- h1 {
- font-size: 2.6rem;
- color: var(--primary);
- margin: 1.2rem 0;
- line-height: 1.2;
- letter-spacing: -0.02em;
- }
+        h1 {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin: 1.2rem 0;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
 
- .subtitle {
- font-size: 1.2rem;
- color: var(--text-light);
- max-width: 850px;
- margin: 0 auto;
- }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 850px;
+            margin: 0 auto;
+        }
 
- /* Grid de Métricas */
- .metrics-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
- gap: 1rem;
- margin-bottom: 4rem;
- }
+        /* Grid de Métricas */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
 
- .metric-card {
- background: var(--card-bg);
- padding: 1.5rem;
- border-radius: 8px;
- text-align: center;
- box-shadow: 0 1px 3px rgba(0,0,0,0.05);
- border: 1px solid #e2e8f0;
- }
+        .metric-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
 
- .metric-card.highlight {
- grid-column: span 2;
- background: linear-gradient(135deg, #1e293b, #0f172a);
- color: white;
- }
+        .metric-card.highlight {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+        }
 
- @media (max-width: 600px) {
- .metric-card.highlight { grid-column: span 1; }
- }
+        @media (max-width: 600px) {
+            .metric-card.highlight { grid-column: span 1; }
+        }
 
- .metric-value {
- font-size: 1.8rem;
- font-weight: bold;
- color: var(--primary);
- margin-bottom: 0.25rem;
- }
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
 
- .highlight .metric-value {
- color: #f1f5f9;
- font-size: 2.2rem;
- }
+        .highlight .metric-value {
+            color: #f1f5f9;
+            font-size: 2.2rem;
+        }
 
- .metric-label {
- font-size: 0.9rem;
- color: var(--text-light);
- font-weight: 500;
- }
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
 
- .highlight .metric-label {
- color: #94a3b8;
- }
+        .highlight .metric-label {
+            color: #94a3b8;
+        }
 
- /* Sección de Impacto de la Deuda */
- .impact-section {
- background: #f1f5f9;
- padding: 3.5rem 2.5rem;
- border-radius: 12px;
- border: 1px solid #e2e8f0;
- }
+        /* Sección de Impacto de la Deuda */
+        .impact-section {
+            background: #f1f5f9;
+            padding: 3.5rem 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 3rem;
+        }
 
- .impact-title {
- text-align: center;
- font-size: 2rem;
- color: var(--primary);
- margin-bottom: 1rem;
- }
+        .impact-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
 
- .impact-subtitle {
- text-align: center;
- color: var(--text-light);
- max-width: 750px;
- margin: 0 auto 3rem auto;
- font-size: 1.05rem;
- }
+        .impact-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.05rem;
+        }
 
- .impact-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
- gap: 1.5rem;
- }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
 
- .impact-card {
- background: var(--card-bg);
- padding: 1.75rem;
- border-radius: 8px;
- box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
- border-top: 4px solid var(--primary);
- transition: transform 0.2s;
- }
+        .impact-card {
+            background: var(--card-bg);
+            padding: 1.75rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
 
- .impact-card:hover {
- transform: translateY(-2px);
- }
+        .impact-card:hover {
+            transform: translateY(-2px);
+        }
 
- .impact-card h3 {
- font-size: 1.25rem;
- margin-bottom: 0.75rem;
- color: var(--primary);
- }
+        .impact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
 
- .impact-card p {
- font-size: 0.95rem;
- color: var(--text-light);
- }
- </style>
+        .impact-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .source-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: #92400e;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
 
- <div class="container">
- <header>
- <span class="badge">Radiografía Fiscal</span>
- <h1>La lista de morosos de Hacienda y el impacto de los 15.400 millones de euros</h1>
- <p class="subtitle">El listado oficial de la Agencia Tributaria expone a deudores con más de 600.000 euros pendientes. Una deuda acumulada de 15.432 millones de euros que incluye a más de 5.800 contribuyentes, entre los que destacan perfiles públicos como Isabel Pantoja, Bertín Osborne o Paz Vega.</p>
- </header>
+    <div class="container">
+        <header>
+            <span class="badge">Radiografía Fiscal</span>
+            <h1>La lista de morosos de Hacienda y el impacto de los 15.400 millones de euros</h1>
+            <p class="subtitle">El listado oficial de la Agencia Tributaria expone a deudores con más de 600.000 euros pendientes. Una deuda acumulada de 15.432 millones de euros que incluye a más de 5.800 contribuyentes, entre los que destacan perfiles públicos como Isabel Pantoja, Bertín Osborne o Paz Vega.</p>
+        </header>
 
- <!-- Bloque de Estadísticas -->
- <section class="metrics-grid">
- <div class="metric-card highlight">
- <div class="metric-value">15.432 M€</div>
- <div class="metric-label">Deuda Total (-2,4% anual)</div>
- </div>
- <div class="metric-card">
- <div class="metric-value">5.853</div>
- <div class="metric-label">Deudores Totales</div>
- </div>
- <div class="metric-card">
- <div class="metric-value">1.111</div>
- <div class="metric-label">Personas Físicas</div>
- </div>
- <div class="metric-card">
- <div class="metric-value">4.742</div>
- <div class="metric-label">Personas Jurídicas</div>
- </div>
- <div class="metric-card" style="border-bottom: 3px solid var(--accent-green)">
- <div class="metric-value" style="color: var(--accent-green)">736</div>
- <div class="metric-label">↑ Nuevos Ingresos</div>
- </div>
- <div class="metric-card" style="border-bottom: 3px solid var(--accent)">
- <div class="metric-value" style="color: var(--accent)">880</div>
- <div class="metric-label">↓ Salidas de Lista</div>
- </div>
- </section>
+        <div class="note">
+            <strong>Nota informativa:</strong> En el listado oficial publicado por la Agencia Tributaria solo aparecen los contribuyentes con una deuda superior a <strong>600.000,00 €</strong>. Por lo tanto, la cantidad total de morosos es significativamente mayor a la cifra reportada en este análisis.
+        </div>
 
- <!-- Contexto Macroeconómico / Equivalencia del 1% del PIB -->
- <section class="impact-section">
- <h2 class="impact-title">¿Qué representan 15.400 millones de euros en España?</h2>
- <p class="impact-subtitle">Esta cantidad acumulada equivale aproximadamente al <strong>1% del PIB de España</strong>. Si este volumen de fraude fiscal pendiente se recuperara por completo, se podrían financiar de forma directa las principales prioridades sociales del país:</p>
+        <!-- Bloque de Estadísticas -->
+        <section class="metrics-grid">
+            <div class="metric-card highlight">
+                <div class="metric-value">15.432 M€</div>
+                <div class="metric-label">Deuda Total (-2,4% anual)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">5.853</div>
+                <div class="metric-label">Deudores Totales</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">1.111</div>
+                <div class="metric-label">Personas Físicas</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">4.742</div>
+                <div class="metric-label">Personas Jurídicas</div>
+            </div>
+            <div class="metric-card" style="border-bottom: 3px solid var(--accent-green)">
+                <div class="metric-value" style="color: var(--accent-green)">736</div>
+                <div class="metric-label">↑ Nuevos Ingresos</div>
+            </div>
+            <div class="metric-card" style="border-bottom: 3px solid var(--accent)">
+                <div class="metric-value" style="color: var(--accent)">880</div>
+                <div class="metric-label">↓ Salidas de Lista</div>
+            </div>
+        </section>
 
- <div class="impact-grid">
- <div class="impact-card" style="border-top-color: #f59e0b;">
- <h3>Vivienda Pública</h3>
- <p>Construcción o adquisición de 75.000 viviendas públicas al año, aliviando de forma inmediata la crisis del mercado del alquiler y facilitando el acceso a los jóvenes.</p>
- </div>
- <div class="impact-card" style="border-top-color: #ef4444;">
- <h3>Atención Primaria</h3>
- <p>Inyección para cumplir la ratio de la OMS. Citas garantizadas en menos de 48 horas e incorporación de psicólogos, fisioterapeutas y servicios dentales gratuitos.</p>
- </div>
- <div class="impact-card" style="border-top-color: #3b82f6;">
- <h3>Educación y FP</h3>
- <p>Reducción de ratios a un máximo de 15-20 alumnos por clase y creación de 150.000 nuevas plazas de Formación Profesional orientadas a la innovación tecnológica.</p>
- </div>
- <div class="impact-card" style="border-top-color: #10b981;">
- <h3>Ciencia e I+D+i</h3>
- <p>Financiación masiva de laboratorios y proyectos estratégicos, logrando la estabilidad, la retención y el retorno de miles de investigadores científicos en el país.</p>
- </div>
- </div>
- </section>
- </div>
+        <!-- Contexto Macroeconómico / Equivalencia del 1% del PIB -->
+        <section class="impact-section">
+            <h2 class="impact-title">¿Qué representan 15.400 millones de euros en España?</h2>
+            <p class="impact-subtitle">Esta cantidad acumulada equivale aproximadamente al <strong>1% del PIB de España</strong>. Si este volumen de fraude fiscal pendiente se recuperara por completo, se podrían financiar de forma directa las principales prioridades sociales del país:</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card" style="border-top-color: #f59e0b;">
+                    <h3>Vivienda Pública</h3>
+                    <p>Construcción o adquisición de 75.000 viviendas públicas al año, aliviando de forma inmediata la crisis del mercado del alquiler y facilitando el acceso a los jóvenes.</p>
+                </div>
+                <div class="impact-card" style="border-top-color: #ef4444;">
+                    <h3>Atención Primaria</h3>
+                    <p>Inyección para cumplir la ratio de la OMS. Citas garantizadas en menos de 48 horas e incorporación de psicólogos, fisioterapeutas y servicios dentales gratuitos.</p>
+                </div>
+                <div class="impact-card" style="border-top-color: #3b82f6;">
+                    <h3>Educación y FP</h3>
+                    <p>Reducción de ratios a un máximo de 15-20 alumnos por clase y creación de 150.000 nuevas plazas de Formación Profesional orientadas a la innovación tecnológica.</p>
+                </div>
+                <div class="impact-card" style="border-top-color: #10b981;">
+                    <h3>Ciencia e I+D+i</h3>
+                    <p>Financiación masiva de laboratorios y proyectos estratégicos, logrando la estabilidad, la retención y el retorno de miles de investigadores científicos en el país.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Fuente de datos: <a href="https://sede.agenciatributaria.gob.es/Sede/todas-noticias/2026/junio/30/publicacion-listado-deudores-hacienda-publica.html" class="source-link" target="_blank" rel="noopener noreferrer">Agencia Tributaria (Sede Electrónica)</a>
+        </footer>
+    </div>
 
 </body>
 </html>
